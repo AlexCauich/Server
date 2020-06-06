@@ -5,6 +5,7 @@ class Register extends Component {
     constructor() {
         super();
         this.state = {
+            id: '',
             name_job: '',
             name_service: '',
             phone: '',
@@ -62,6 +63,12 @@ class Register extends Component {
         });
     }
 
+    ondelete = (val, e) => {
+        e.preventDefault();
+        deleteItem(val);
+        this.getAll();
+    }
+
 
     renderProducts() {
         return this.state.items.map(item => {
@@ -71,6 +78,15 @@ class Register extends Component {
                     <td>{item.name_job}</td>
                     <td>{item.name_service}</td>
                     <td>{item.phone}</td>
+                    <td>{item.place_delivery}</td>
+                    <td>{item.speci}</td>
+                    <td>{item.prepayment}</td>
+                    <td>{item.reg_date}</td>
+                    <td>
+                        <button className="btn btn-outline-danger" onClick={this.ondelete.bind(this, item.id)}>
+                            Delete
+                        </button>
+                    </td>
                 </tr>
 );
         })
@@ -125,7 +141,7 @@ class Register extends Component {
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="reg_date">reg_date</label>
-                                                <input type="date" className="form-control" id="reg_date" name="reg_date" placeholder="Text here" value={this.state.place_delivery || ''} onChange={this.onChange.bind(this)}/>
+                                                <input type="date" className="form-control" id="reg_date" name="reg_date"  onChange={this.onChange.bind(this)}/>
                                             </div>
                                         </form>
                                     </div>

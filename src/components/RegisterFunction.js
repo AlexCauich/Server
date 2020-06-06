@@ -22,7 +22,7 @@ export const addItem = formDate => {
 }
 
 export const deleteItem = id => {
-    axios.delete(`http//127.0.0.1:8000/api/register/${id}`, {
+    axios.delete(`http://127.0.0.1:8000/api/register/${id}`, {
         headers: { 'Content-Type': 'application/json' }
     })
     .then(res => {
@@ -35,7 +35,7 @@ export const deleteItem = id => {
 
 export const updateItem = (addReg, id) => {
     return axios
-    .put(`http//127.0.0.1:8000/api/register/${id}`, {
+    .put(`http://127.0.0.1:8000/api/register/${id}`, {
         body: JSON.stringify(addReg)
     },
     {
