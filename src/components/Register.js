@@ -5,12 +5,13 @@ class Register extends Component {
     constructor() {
         super();
         this.state = {
-            
-                name_job: '',
-                name_service: '',
-                phone: '',
-        
-            
+            name_job: '',
+            name_service: '',
+            phone: '',
+            place_delivery: '',
+            speci: '',
+            prepayment: '',
+            reg_date: '',
             items: []
         }
 
@@ -34,6 +35,10 @@ class Register extends Component {
                 name_job: '',
                 name_service: '',
                 phone: '',
+                place_delivery: '',
+                speci: '',
+                prepayment: '',
+                reg_date: '',
                 items:[...data]
             },
             () => {
@@ -48,7 +53,10 @@ class Register extends Component {
         formDate.append('name_job', this.state.name_job)
         formDate.append('name_service', this.state.name_service)
         formDate.append('phone', this.state.phone)
-
+        formDate.append('place_delivery', this.state.place_delivery)
+        formDate.append('speci', this.state.speci)
+        formDate.append('prepayment', this.state.prepayment)
+        formDate.append('reg_date', this.state.reg_date)
         addItem(formDate).then(() => {
             this.getAll();
         });
@@ -93,15 +101,31 @@ class Register extends Component {
                                         <form onSubmit={this.onSubmit}>
                                             <div className="form-group">
                                                 <label htmlFor="name_job">Name job</label>
-                                                <input type="text" className="form-control" id="name_job" name="name_job" value={this.state.name_job || ''} onChange={this.onChange.bind(this)}/>
+                                                <input type="text" className="form-control" id="name_job" name="name_job" placeholder="Text here" value={this.state.name_job || ''} onChange={this.onChange.bind(this)}/>
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="name_service">Name service</label>
-                                                <input type="text" className="form-control" id="name_service" name="name_service" value={this.state.name_service || ''} onChange={this.onChange.bind(this)}/>
+                                                <input type="text" className="form-control" id="name_service" name="name_service" placeholder="Text here" value={this.state.name_service || ''} onChange={this.onChange.bind(this)}/>
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="name_phone">Phone</label>
-                                                <input type="text" className="form-control" id="phone" name="phone" value={this.state.phone || ''} onChange={this.onChange.bind(this)}/>
+                                                <input type="text" className="form-control" id="phone" name="phone" placeholder="Text here" value={this.state.phone || ''} onChange={this.onChange.bind(this)}/>
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="place_delivery">place_delivery</label>
+                                                <input type="text" className="form-control" id="place_delivery" name="place_delivery" placeholder="Text here" value={this.state.place_delivery || ''} onChange={this.onChange.bind(this)}/>
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="speci">speci</label>
+                                                <textarea type="text" className="form-control" id="speci" name="speci" placeholder="Text here" value={this.state.speci || ''} onChange={this.onChange.bind(this)}/>
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="prepayment">prepayment</label>
+                                                <input type="text" className="form-control" id="prepayment" name="prepayment" placeholder="Text here" value={this.state.prepayment || ''} onChange={this.onChange.bind(this)}/>
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="reg_date">reg_date</label>
+                                                <input type="date" className="form-control" id="reg_date" name="reg_date" placeholder="Text here" value={this.state.place_delivery || ''} onChange={this.onChange.bind(this)}/>
                                             </div>
                                         </form>
                                     </div>
