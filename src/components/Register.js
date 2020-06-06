@@ -59,7 +59,7 @@ class Register extends Component {
         return this.state.items.map(item => {
             return (
                 <tr key={item.id}>
-                    <td>{item.id}</td>
+                    <td className="bg-secondary">{item.id}</td>
                     <td>{item.name_job}</td>
                     <td>{item.name_service}</td>
                     <td>{item.phone}</td>
@@ -71,43 +71,71 @@ class Register extends Component {
     render() {
         return(
             <div className="App jumbotron">
-                <div className="row justify-content-center">
+                <div className="row">
                     <div className="col-md-4">
-                        <form onSubmit={this.onSubmit} className="card">
-                            <div className="card-header">New Register </div>
-                            <div className="card-body">
-                                <div className="form-group">
-                                    <label htmlFor="name_job">Name job</label>
-                                    <input type="text" className="form-control" id="name_job" name="name_job" value={this.state.name_job || ''} onChange={this.onChange.bind(this)}/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="name_service">Name service</label>
-                                    <input type="text" className="form-control" id="name_service" name="name_service" value={this.state.name_service || ''} onChange={this.onChange.bind(this)}/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="name_phone">Phone</label>
-                                    <input type="text" className="form-control" id="phone" name="phone" value={this.state.phone || ''} onChange={this.onChange.bind(this)}/>
+                        <div className="form-group">
+                            <h3>Aluminios Soberanis</h3>
+                            <h4>Registration table</h4>
+                        </div>
+                        <div className="btn btn-outline-primary mt-2 mb-2" type="button" data-toggle="modal"  data-target="#exampleModal">
+                            Launch register panel
+                        </div>
+                        <div className="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="exampleModalLabel">New register</h5>
+                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <form onSubmit={this.onSubmit}>
+                                            <div className="form-group">
+                                                <label htmlFor="name_job">Name job</label>
+                                                <input type="text" className="form-control" id="name_job" name="name_job" value={this.state.name_job || ''} onChange={this.onChange.bind(this)}/>
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="name_service">Name service</label>
+                                                <input type="text" className="form-control" id="name_service" name="name_service" value={this.state.name_service || ''} onChange={this.onChange.bind(this)}/>
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="name_phone">Phone</label>
+                                                <input type="text" className="form-control" id="phone" name="phone" value={this.state.phone || ''} onChange={this.onChange.bind(this)}/>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" className="btn btn-success" onClick={this.onSubmit.bind(this)}>Save Changes</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="card-footer">
-                                <button type="submit" className="btn btn-success" onClick={this.onSubmit.bind(this)}>Save</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                    <div className="col-md-8">
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name job</th>
-                                    <th>Name service</th>
-                                    <th>Phone</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.renderProducts()}
-                            </tbody>
-                        </table>
+                </div>
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="table-responsive">
+                            <table className="table table-borderless table-hover">
+                                <thead className="thead-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name job</th>
+                                        <th>Name service</th>
+                                        <th>Phone</th>
+                                        <th>Place delivery</th>
+                                        <th>Specifications</th>
+                                        <th>Prepayment</th>
+                                        <th>Registration date</th>
+                                        <th>Acctions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {this.renderProducts()}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
